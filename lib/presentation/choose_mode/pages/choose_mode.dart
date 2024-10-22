@@ -49,7 +49,14 @@ class ChooseModeScreen extends StatelessWidget {
                           style: TextStyle(fontSize: 18,color: Colors.white,fontWeight: FontWeight.bold),
                           textAlign: TextAlign.center,),
                         SizedBox(height: 30,),
-                        avatorButton(),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceAround,
+                          children: [
+                            avatorButton('Dark Mode',Icons.nightlight_outlined),
+                            avatorButton('Light Mode',Icons.wb_sunny_outlined),
+                          ],
+                        ),
+
                         SizedBox(height: 20,),
 
                         BasicAppButton('Continue', () {
@@ -67,27 +74,23 @@ class ChooseModeScreen extends StatelessWidget {
     );
   }
 
-  Widget avatorButton() {
+  Widget avatorButton(String title,IconData iconData) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        CircleAvatar(
-          radius: 30,
-          backgroundColor: Colors.black.withOpacity(0.5),
-          child: IconButton(
-            onPressed: (){},
-            icon: Icon(Icons.nightlight_outlined),
+        Column(
+          children: [
+            CircleAvatar(
+              radius: 30,
+              backgroundColor: Colors.black.withOpacity(0.5),
+              child: IconButton(
+                onPressed: (){},
+                icon: Icon(iconData)//Icon(Icons.nightlight_outlined),
 
-          ),
-        ),
-        SizedBox(width: 70,),
-        CircleAvatar(
-          radius: 30,
-          backgroundColor: Colors.black.withOpacity(0.5),
-          child: IconButton(
-            onPressed: (){},
-            icon: Icon(Icons.wb_sunny_outlined),
-          ),
+              ),
+            ),
+            Text(title,style: TextStyle(color: Colors.white),)
+          ],
         ),
       ],
     );
