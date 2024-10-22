@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:spotify/core/configs/theme/app_theme.dart';
+import 'package:spotify/presentation/choose_mode/pages/choose_mode.dart';
 import 'package:spotify/presentation/intro/pages/get_started.dart';
 import 'package:spotify/presentation/splash/pages/splash.dart';
 
@@ -14,10 +15,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: AppTheme.lightTheme,
       home: Scaffold(
-        body: SplashScreen()
+        body: SafeArea(child: SplashScreen())
       ),
       routes: {
         GetStartedScreen.routName:(context)=>GetStartedScreen(),
+        ChooseModeScreen.routName:(context)=>ChooseModeScreen(),
       },
     );
   }

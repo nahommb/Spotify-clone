@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:spotify/common/widgets/button/basic_app_button.dart';
+import 'package:spotify/presentation/choose_mode/pages/choose_mode.dart';
 
 class GetStartedScreen extends StatefulWidget {
   const GetStartedScreen({super.key});
@@ -25,10 +26,17 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
                 )
               )
             ),
-            child: Column(
+          ),
+          Container(
+            color: Colors.black.withOpacity(0.2),
+          ),
+            Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                Image.asset( height: 35, './assets/vectors/spotify_logo.png'),
+                Padding(
+                  padding: const EdgeInsets.all(40.0),
+                  child: Image.asset( height: 55, './assets/vectors/spotify_logo.png'),
+                ),
                 Spacer(),
                 Container(
                     // height: 150,
@@ -51,7 +59,10 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
                             style: TextStyle(fontSize: 13,color: Colors.white),
                             textAlign: TextAlign.center,),
                           SizedBox(height: 20,),
-                          BasicAppButton('Get Started', () { }, 50)
+                          BasicAppButton('Get Started', () {
+                            print('checkkkk');
+                            Navigator.pushNamed(context, ChooseModeScreen.routName);
+                          }, 60)
                         ],
                       ),
                     )
@@ -59,10 +70,7 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
                 ),
               ],
             ),
-          ),
-          Container(
-            color: Colors.black.withOpacity(0.2),
-          ),
+
 
         ],
       )

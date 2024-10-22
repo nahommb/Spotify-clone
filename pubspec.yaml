@@ -63,6 +63,7 @@ flutter:
   assets:
     - assets/vectors/spotify_logo.png
     - assets/images/intro_bg.jpg
+    - assets/images/choose_mode_bg.jpg
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 
