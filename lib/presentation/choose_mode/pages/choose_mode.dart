@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:spotify/core/configs/theme/app_theme.dart';
+import 'package:spotify/presentation/choose_mode/bloc/them_cubit.dart';
 
 import '../../../common/widgets/button/basic_app_button.dart';
 
@@ -52,14 +55,21 @@ class ChooseModeScreen extends StatelessWidget {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
-                            avatorButton('Dark Mode',Icons.nightlight_outlined),
-                            avatorButton('Light Mode',Icons.wb_sunny_outlined),
+                            avatorButton('Dark Mode',Icons.nightlight_outlined,(){
+                              print('test');
+                              context.read<ThemeCubit>().updateTheme(ThemeMode.dark);
+                            },),
+                            avatorButton('Light Mode',Icons.wb_sunny_outlined,(){
+                              print('test');
+                              context.read<ThemeCubit>().updateTheme(ThemeMode.light);
+                            }),
                           ],
                         ),
 
                         SizedBox(height: 20,),
 
                         BasicAppButton('Continue', () {
+                          print('button');
                           Navigator.pushNamed(context, ChooseModeScreen.routName);
                         }, 60)
                       ],
@@ -74,24 +84,21 @@ class ChooseModeScreen extends StatelessWidget {
     );
   }
 
-  Widget avatorButton(String title,IconData iconData) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
+  Widget avatorButton(String title,IconData iconData,Function onTap) {
+    return Column(
       children: [
-        Column(
-          children: [
-            CircleAvatar(
-              radius: 30,
-              backgroundColor: Colors.black.withOpacity(0.5),
-              child: IconButton(
-                onPressed: (){},
-                icon: Icon(iconData)//Icon(Icons.nightlight_outlined),
+        CircleAvatar(
+          radius: 30,
+          backgroundColor: Colors.black.withOpacity(0.5),
+          child: IconButton(
+            onPressed: (){
+              onTap();
+            },
+            icon: Icon(iconData)//Icon(Icons.nightlight_outlined),
 
-              ),
-            ),
-            Text(title,style: TextStyle(color: Colors.white),)
-          ],
+          ),
         ),
+        Text(title,style: TextStyle(color: Colors.white),)
       ],
     );
   }
