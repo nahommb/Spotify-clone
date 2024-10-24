@@ -13,10 +13,13 @@ class BasicAppButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
         style: ElevatedButton.styleFrom(
-          minimumSize: Size.fromHeight(height??80)
+          minimumSize: Size.fromHeight(height??80),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(15))
+          )
         ),
         onPressed: onPressed,
-        child: Text(title)
+        child: Text(title ,style: TextStyle(fontSize: 13),)
     );
   }
 }

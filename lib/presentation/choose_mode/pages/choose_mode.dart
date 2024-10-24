@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:spotify/core/configs/theme/app_theme.dart';
+import 'package:spotify/presentation/auth/pages/signin_signup.dart';
 import 'package:spotify/presentation/choose_mode/bloc/them_cubit.dart';
 
 import '../../../common/widgets/button/basic_app_button.dart';
@@ -8,7 +9,7 @@ import '../../../common/widgets/button/basic_app_button.dart';
 class ChooseModeScreen extends StatelessWidget {
   const ChooseModeScreen({super.key});
 
-  static final routName = 'choose_mode';
+  static final routeName = 'choose_mode';
 
   @override
   Widget build(BuildContext context) {
@@ -60,7 +61,7 @@ class ChooseModeScreen extends StatelessWidget {
                               context.read<ThemeCubit>().updateTheme(ThemeMode.dark);
                             },),
                             avatorButton('Light Mode',Icons.wb_sunny_outlined,(){
-                              print('test');
+
                               context.read<ThemeCubit>().updateTheme(ThemeMode.light);
                             }),
                           ],
@@ -69,8 +70,8 @@ class ChooseModeScreen extends StatelessWidget {
                         SizedBox(height: 20,),
 
                         BasicAppButton('Continue', () {
-                          print('button');
-                          Navigator.pushNamed(context, ChooseModeScreen.routName);
+
+                          Navigator.pushNamed(context, Signin_SignupScreen.routeName);
                         }, 60)
                       ],
                     ),

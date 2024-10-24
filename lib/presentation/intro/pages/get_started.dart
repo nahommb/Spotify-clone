@@ -4,7 +4,7 @@ import 'package:spotify/presentation/choose_mode/pages/choose_mode.dart';
 
 class GetStartedScreen extends StatefulWidget {
   const GetStartedScreen({super.key});
-   static final routName = 'get_started';
+   static final routeName = 'get_started';
   @override
   State<GetStartedScreen> createState() => _GetStartedScreenState();
 }
@@ -60,8 +60,8 @@ class _GetStartedScreenState extends State<GetStartedScreen> {
                             textAlign: TextAlign.center,),
                           SizedBox(height: 20,),
                           BasicAppButton('Get Started', () {
-                            print('checkkkk');
-                            Navigator.pushNamed(context, ChooseModeScreen.routName);
+
+                            Navigator.pushNamed(context, ChooseModeScreen.routeName);
                           }, 60)
                         ],
                       ),

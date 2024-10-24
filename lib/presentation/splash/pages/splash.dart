@@ -13,7 +13,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   Future<void> redirect ()async {
     await Future.delayed(Duration(seconds: 2));
-    Navigator.pushReplacementNamed(context, GetStartedScreen.routName);
+    Navigator.pushReplacementNamed(context, GetStartedScreen.routeName);
   }
 
   @override
