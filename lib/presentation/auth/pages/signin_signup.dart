@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:spotify/common/helper/is_dark_mode.dart';
 import 'package:spotify/common/widgets/button/basic_app_button.dart';
 
 class Signin_SignupScreen extends StatefulWidget {
@@ -25,7 +26,7 @@ class _Signin_SignupScreenState extends State<Signin_SignupScreen> {
               SizedBox(height: 40,),
               Column(
                 children: [
-                  Text('Enjoy Listening To Music',style: TextStyle(fontSize: 23,fontWeight: FontWeight.bold),),
+                  Text('Enjoy Listening To Music',style: TextStyle(fontSize: 23,fontWeight: FontWeight.bold,color: context.isDarkMode?Colors.white:Colors.black),),
                   SizedBox(height: 10),
                   Padding(
                     padding: const EdgeInsets.only(top: 8,left: 20,right: 20,bottom: 10),
