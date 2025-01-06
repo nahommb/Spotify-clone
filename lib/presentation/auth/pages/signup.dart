@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:spotify/common/widgets/button/basic_app_button.dart';
+import 'package:spotify/presentation/auth/pages/sign_in.dart';
 import '../../../common/widgets/appbar/basic_appbar.dart';
 
 class SignupScreen extends StatelessWidget {
@@ -18,9 +20,14 @@ class SignupScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             _registerText(),
-            _fullNameField(),
-            _fullNameField(),
-            _fullNameField(),
+            _fullNameField(context),
+            _emailField(context),
+            _passwordField(context),
+            BasicAppButton('Create Account', () { }, 60),
+            Spacer(),
+            _signInText(context),
+            // _fullNameField(),
+            // _fullNameField(),
           ],
         ),
       ),
@@ -29,7 +36,7 @@ class SignupScreen extends StatelessWidget {
 
   Widget _registerText(){
     return Padding(
-      padding: const EdgeInsets.only(bottom: 100,top: 20),
+      padding: const EdgeInsets.only(bottom: 80,top: 20),
       child: const Text(
         'Register',
         style: TextStyle(
@@ -41,22 +48,48 @@ class SignupScreen extends StatelessWidget {
     );
   }
 
-  Widget _fullNameField(){
+  Widget _fullNameField(context){
     return Padding(
       padding: const EdgeInsets.all(10.0),
       child: TextField(
-       
-       decoration: InputDecoration(
-         hintText: "Full Name",
-         hintStyle: TextStyle(
-
-         ),
-         border: OutlineInputBorder(
-            borderRadius: BorderRadius.all(Radius.circular(20))
-         ),
-           contentPadding:EdgeInsets.all(25)
-       ),
+        decoration: InputDecoration(
+          hintText: 'Full Name'
+        ).applyDefaults(Theme.of(context).inputDecorationTheme),
       ),
+    );
+  }
+  Widget _emailField(context){
+    return Padding(
+      padding: const EdgeInsets.all(10.0),
+      child: TextField(
+        decoration: InputDecoration(
+            hintText: 'Enter Email'
+        ).applyDefaults(Theme.of(context).inputDecorationTheme),
+      ),
+    );
+  }
+  Widget _passwordField(context){
+    return Padding(
+      padding: const EdgeInsets.all(10.0),
+      child: TextField(
+        decoration: InputDecoration(
+            hintText: 'Password'
+        ).applyDefaults(Theme.of(context).inputDecorationTheme),
+      ),
+    );
+  }
+  Widget _signInText(context){
+    return Padding(
+      padding: const EdgeInsets.all(10.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text('Do You Have Account ?'),
+          TextButton(onPressed: (){
+            Navigator.pushNamed(context, SignInScreen.routName);
+          }, child: Text('Sign In'))
+        ],
+      )
     );
   }
 }

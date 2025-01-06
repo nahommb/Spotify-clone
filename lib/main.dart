@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:spotify/core/configs/theme/app_theme.dart';
+import 'package:spotify/presentation/auth/pages/sign_in.dart';
 import 'package:spotify/presentation/auth/pages/signin_signup.dart';
 import 'package:spotify/presentation/auth/pages/signup.dart';
 import 'package:spotify/presentation/choose_mode/bloc/them_cubit.dart';
@@ -44,6 +45,7 @@ class MyApp extends StatelessWidget {
             ChooseModeScreen.routeName:(context)=>ChooseModeScreen(),
             Signin_SignupScreen.routeName:(context)=>Signin_SignupScreen(),
             SignupScreen.routName:(context)=>SignupScreen(),
+            SignInScreen.routName:(context)=>SignInScreen(),
           },
         ),
       ),

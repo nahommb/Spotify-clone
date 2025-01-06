@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:spotify/common/helper/is_dark_mode.dart';
 import 'package:spotify/common/widgets/appbar/basic_appbar.dart';
 import 'package:spotify/common/widgets/button/basic_app_button.dart';
+import 'package:spotify/presentation/auth/pages/sign_in.dart';
 import 'package:spotify/presentation/auth/pages/signup.dart';
 
 class Signin_SignupScreen extends StatefulWidget {
@@ -50,7 +51,9 @@ class _Signin_SignupScreenState extends State<Signin_SignupScreen> {
                         ),
                         Expanded(
                             flex: 1,
-                            child: TextButton(onPressed: (){}, child: Text('Sign in')))
+                            child: TextButton(onPressed: (){
+                              Navigator.pushNamed(context, SignInScreen.routName);
+                            }, child: Text('Sign in')))
                       ],
                     ),
                   ],
