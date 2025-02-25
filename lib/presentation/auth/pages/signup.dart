@@ -1,12 +1,16 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:spotify/common/widgets/button/basic_app_button.dart';
 import 'package:spotify/presentation/auth/pages/sign_in.dart';
 import '../../../common/widgets/appbar/basic_appbar.dart';
 
+
 class SignupScreen extends StatelessWidget {
 
 
   static final routName = 'signup_screen';
+
+  final FirebaseAuth auth = FirebaseAuth.instance;
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +27,9 @@ class SignupScreen extends StatelessWidget {
             _fullNameField(context),
             _emailField(context),
             _passwordField(context),
-            BasicAppButton('Create Account', () { }, 60),
+            BasicAppButton('Create Account', () {
+              auth.createUserWithEmailAndPassword(email: 'nahomjr@gmail.com', password: '123456');
+            }, 60),
             Spacer(),
             _signInText(context),
             // _fullNameField(),
